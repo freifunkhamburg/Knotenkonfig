@@ -1,0 +1,158 @@
+
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config switch
+	option name 'eth0'
+	option reset '1'
+	option enable_vlan '1'
+
+config switch_vlan
+	option device 'eth0'
+	option vlan '1'
+	option ports '0t 3 4 5'
+
+config switch_vlan
+	option device 'eth0'
+	option vlan '2'
+	option ports '0t 1'
+
+config switch_vlan
+       option device 'eth0'
+       option vlan '5'
+       option ports '0t 2t'
+       option vid '5'
+
+config switch_vlan
+       option device 'eth0'
+       option vlan '10'
+       option ports '0t 2t'
+       option vid '10'
+
+config switch_vlan
+       option device 'eth0'
+       option vlan '20'
+       option ports '0t 2t'
+       option vid '20'
+
+config switch_vlan
+       option device 'eth0'
+       option vlan '22'
+       option ports '0t 2t'
+       option vid '22'
+
+config interface 'vlan5'
+       option proto 'static'
+       option ifname 'eth0.5'
+       option ipaddr '192.168.112.2'
+       option netmask '255.255.255.0'	   
+	   
+config interface 'vlan10'                 
+       option proto 'batadv'             
+       option mesh 'bat0'                
+       option mtu '1500'                 
+       option ifname 'eth0.10'           
+       option macaddr 'de:ad:be:ef:90:00'
+                                         
+config interface 'vlan20'                 
+       option proto 'batadv'             
+       option mesh 'bat0'                
+       option mtu '1500'                 
+       option ifname 'eth0.20'           
+       option macaddr 'de:ad:be:ef:90:01'
+
+config interface 'vlan22'                
+       option proto 'batadv'             
+       option mesh 'bat0'                
+       option mtu '1500'                 
+       option ifname 'eth0.22'           
+       option macaddr 'de:ad:be:ef:90:02'
+
+config interface 'wan'
+	option ifname 'eth0.2'
+	option proto 'dhcp'
+	option type 'bridge'
+	option peerdns '0'
+	option macaddr 'ea:94:f6:ce:6d:47'
+
+config interface 'wan6'
+	option proto 'dhcpv6'
+	option ifname 'br-wan'
+	option peerdns '0'
+	option ip6table '1'
+
+config rule6 'wan6_lookup'
+	option mark '0x01/0x01'
+	option lookup '1'
+
+config route6 'wan6_unreachable'
+	option type 'unreachable'
+	option table '1'
+	option target '::/0'
+	option metric '65535'
+	option gateway '::'
+	option interface 'loopback'
+
+config interface 'client'
+	option reqprefix 'no'
+	option ifname 'eth0.1 bat0'
+	option proto 'dhcpv6'
+	option type 'bridge'
+	option macaddr 'e8:94:f6:cd:6d:46'
+	option peerdns '1'
+
+config interface 'bat0'
+	option ifname 'bat0'
+	option macaddr 'e8:94:f6:cd:6d:46'
+	option proto 'none'
+
+config interface 'mesh_radio0'
+	option proto 'batadv'
+	option mesh 'bat0'
+	option mtu '1528'
+
+config interface 'mesh_radio1'
+	option proto 'batadv'
+	option mesh 'bat0'
+	option mtu '1528'
+
+config interface 'mesh_wan'
+	option auto '0'
+	option ifname 'br-wan'
+	option mesh 'bat0'
+	option proto 'batadv'
+
+config interface 'mesh_vpn'
+	option ifname 'mesh-vpn'
+	option mesh_no_rebroadcast '1'
+	option macaddr 'ea:94:f6:ce:6d:46'
+	option mesh 'bat0'
+	option proto 'batadv'
+
+config device 'local_node_dev'
+	option macaddr '16:41:95:40:f7:dc'
+	option ifname 'br-client'
+	option name 'local-node'
+	option type 'macvlan'
+
+config interface 'local_node'
+	option ifname 'local-node'
+	option ipaddr '10.112.0.1'
+	option ip6addr 'fd51:2bb2:fd0d::1/128'
+	option netmask '255.255.255.255'
+	option proto 'static'
+
+config route 'local_node_route4'
+	option target '10.112.0.0'
+	option gateway '0.0.0.0'
+	option netmask '255.255.192.0'
+	option interface 'client'
+
+config route6 'local_node_route6'
+	option target 'fd51:2bb2:fd0d::/64'
+	option gateway '::'
+	option interface 'client'
+
