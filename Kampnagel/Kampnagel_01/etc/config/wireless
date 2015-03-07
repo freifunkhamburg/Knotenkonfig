@@ -27,5 +27,3 @@ config wifi-iface 'mesh_radio0'
 	option mode 'adhoc'
 	option bssid 'f8:d1:11:87:52:2e'
 	option ssid 'f8:d1:11:87:52:2e'
-	option disabled '1'
-

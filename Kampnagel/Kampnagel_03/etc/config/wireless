@@ -8,7 +8,7 @@ config wifi-device 'radio0'
 	list ht_capab 'RX-STBC1'
 	list ht_capab 'DSSS_CCK-40'
 	option country 'DE'
-	option channel '1'
+	option channel '9'
 	option htmode 'HT20'
 	option txpower '8'
 
