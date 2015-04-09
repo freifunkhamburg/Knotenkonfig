@@ -43,6 +43,12 @@ config switch_vlan
        option vlan '21'
        option ports '0t 2t'
        option vid '21'
+
+config switch_vlan
+       option device 'eth0'
+       option vlan '22'
+       option ports '0t 2t'
+       option vid '22'
  
 config interface 'vlan5'
        option proto 'static'
@@ -70,6 +76,13 @@ config interface 'vlan21'
        option mtu '1500'                 
        option ifname 'eth0.21'           
        option macaddr 'de:ad:be:ef:90:12'
+
+config interface 'vlan22'
+       option proto 'batadv'
+       option mesh 'bat0'
+       option mtu '1500'
+       option ifname 'eth0.22'
+       option macaddr 'de:ad:be:ef:90:13'
 
 config interface 'wan'
 	option ifname 'eth0.2'
