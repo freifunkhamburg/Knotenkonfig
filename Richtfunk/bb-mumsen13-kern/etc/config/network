@@ -23,9 +23,9 @@ config switch_vlan
 
 config switch_vlan
        option device 'eth0'
-       option vlan '21'
+       option vlan '11'
        option ports '0t 1t'
-       option vid '21'
+       option vid '11'
 
 config interface 'vlan5'
        option proto 'static'
@@ -33,11 +33,11 @@ config interface 'vlan5'
        option ipaddr '192.168.112.11'
        option netmask '255.255.255.0'
 
-config interface 'vlan21'
+config interface 'vlan11'
        option proto 'batadv'
        option mesh 'bat0'
        option mtu '1500'
-       option ifname 'eth0.21'
+       option ifname 'eth0.11'
        option macaddr 'de:ad:be:ef:90:20'
 
 config interface 'wan'
@@ -72,7 +72,7 @@ config interface 'client'
 	option macaddr 'e8:de:27:58:a1:20'
 	option peerdns '1'
 	option igmp_snooping '0'
-	option ifname 'bat0'
+	option ifname 'eth0 bat0'
 
 config interface 'mesh_wan'
 	option auto '0'
@@ -120,9 +120,3 @@ config route6 'local_node_route6'
 	option target '2a03:2267::/64'
 	option gateway '::'
 	option interface 'client'
-
-config interface 'mesh_lan'
-	option ifname 'eth0'
-	option mesh 'bat0'
-	option proto 'batadv'
-
