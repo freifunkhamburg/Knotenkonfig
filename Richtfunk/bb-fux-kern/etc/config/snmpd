@@ -1,0 +1,54 @@
+config agent
+	option agentaddress UDP6:161
+
+config com2sec6 readonly
+	option secname ro
+	option source default
+	option community ffrichtfunk
+
+config group public_v1
+        option group MyROGroup
+        option version v1
+        option secname ro
+
+
+config group public_v2c
+	option group MyROGroup
+	option version v2c
+	option secname ro
+
+config group public_usm
+	option group MyROGroup
+	option version usm
+	option secname ro
+
+config view all
+	option viewname all
+	option type included
+	option oid .1
+	option mask 80
+
+config access public_access
+	option group MyROGroup
+	option context none
+	option version any
+	option level noauth
+	option prefix exact
+	option read all
+	option write none
+	option notify none
+
+config system
+	option sysLocation	'fux, Zeiseweg 9, 22765 Hamburg'
+	option sysContact	'richtfunk@hamburg.freifunk.net'
+#	option sysName		'bb-fux-kern'
+#	option sysServices	72
+#	option sysDescr		'adult playground'
+#	option sysObjectID	'1.2.3.4'
+
+config exec
+	option name	filedescriptors
+	option prog	/bin/cat
+	option args	/proc/sys/fs/file-nr
+#	option miboid	1.2.3.4
+
