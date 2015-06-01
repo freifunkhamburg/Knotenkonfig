@@ -20,7 +20,7 @@ config wifi-iface 'client_radio0'
 	option ssid 'hamburg.freifunk.net'
 
 config wifi-iface 'mesh_radio0'
-	option mcast_rate '6000'
+	option mcast_rate '12000'
 	option network 'mesh_radio0'
 	option macaddr '26:a7:3d:e0:36:c0'
 	option device 'radio0'
