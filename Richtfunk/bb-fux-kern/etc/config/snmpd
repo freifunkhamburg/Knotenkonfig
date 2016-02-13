@@ -6,12 +6,6 @@ config com2sec6 readonly
 	option source default
 	option community ffrichtfunk
 
-config group public_v1
-        option group MyROGroup
-        option version v1
-        option secname ro
-
-
 config group public_v2c
 	option group MyROGroup
 	option version v2c
@@ -39,7 +33,7 @@ config access public_access
 	option notify none
 
 config system
-	option sysLocation	'fux, Zeiseweg 9, 22765 Hamburg'
+	option sysLocation	'Zeiseweg 9, 22765 Hamburg'
 	option sysContact	'richtfunk@hamburg.freifunk.net'
 #	option sysName		'bb-fux-kern'
 #	option sysServices	72

@@ -30,42 +30,37 @@ config switch_vlan
 	option ports '0t 1'
 
 config switch_vlan
-        option vlan '5'
-        option ports '0t 2t'
-        option vid '5'
-        option device 'switch0'
+	option vlan '5'
+	option ports '0t 2t'
+	option device 'switch0'
 
 config switch_vlan
-        option vlan '10'
-        option ports '0t 2t'
-        option vid '10'
-        option device 'switch0'
+	option vlan '10'
+	option ports '0t 2t'
+	option device 'switch0'
 
-config switch_vlan                        
-        option vlan '25'                  
-        option ports '0t 2t'              
-        option vid '25'                   
-        option device 'switch0'           
+config switch_vlan
+	option vlan '25'
+	option ports '0t 2t'
+	option device 'switch0'
 
-config interface 'vlan5'       
-        option proto 'static'  
-        option ifname 'eth0.5' 
-        option ipaddr '192.168.112.24'
-        option netmask '255.255.255.0'
-                                      
-config interface 'vlan10'             
-        option proto 'batadv'         
-        option mesh 'bat0'            
-        option mtu '1500'             
-        option ifname 'eth0.10'       
-        option macaddr 'de:ad:be:ef:90:50'
-                                          
-config interface 'vlan25'                 
-        option proto 'batadv'             
-        option mesh 'bat0'                
-        option mtu '1500'                 
-        option ifname 'eth0.25'           
-        option macaddr 'de:ad:be:ef:90:51'
+config interface 'vlan5'
+	option proto 'static'
+	option ifname 'eth0.5'
+	option ipaddr '192.168.112.24'
+	option netmask '255.255.255.0'
+
+config interface 'vlan10'
+	option proto 'batadv'
+	option mesh 'bat0'
+	option ifname 'eth0.10'
+	option macaddr 'de:ad:be:ef:90:50'
+
+config interface 'vlan25'
+	option proto 'batadv'
+	option mesh 'bat0'
+	option ifname 'eth0.25'
+	option macaddr 'de:ad:be:ef:90:51'
 
 config interface 'wan'
 	option igmp_snooping '0'
@@ -97,21 +92,6 @@ config interface 'client'
 	option macaddr 'f8:1a:67:ca:92:24'
 	option peerdns '1'
 
-config interface 'bat0'
-	option ifname 'bat0'
-	option macaddr 'f8:1a:67:ca:92:24'
-	option proto 'none'
-
-config interface 'mesh_radio0'
-	option mesh 'bat0'
-	option proto 'batadv'
-	option mtu '1528'
-
-config interface 'mesh_radio1'
-	option mesh 'bat0'
-	option proto 'batadv'
-	option mtu '1528'
-
 config interface 'mesh_wan'
 	option auto '0'
 	option ifname 'br-wan'
@@ -131,6 +111,21 @@ config interface 'mesh_vpn'
 	option macaddr 'fa:1e:67:ca:92:24'
 	option mesh 'bat0'
 	option proto 'batadv'
+
+config interface 'bat0'
+	option ifname 'bat0'
+	option macaddr 'f8:1a:67:ca:92:24'
+	option proto 'none'
+
+config interface 'mesh_radio0'
+	option mesh 'bat0'
+	option proto 'batadv'
+	option mtu '1528'
+
+config interface 'mesh_radio1'
+	option mesh 'bat0'
+	option proto 'batadv'
+	option mtu '1528'
 
 config device 'local_node_dev'
 	option macaddr '16:41:95:40:f7:dc'

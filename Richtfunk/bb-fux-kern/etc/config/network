@@ -23,45 +23,43 @@ config switch_vlan
 config switch_vlan
 	option vlan '5'
 	option ports '0t 2t'
-	option vid '5'
 	option device 'switch0'
+
+config switch_vlan
+        option vlan '6'
+        option ports '0t 2t'
+        option device 'switch0'
 
 config switch_vlan
 	option vlan '10'
 	option ports '0t 2t'
-	option vid '10'
 	option device 'switch0'
 
 config switch_vlan
 	option vlan '20'
 	option ports '0t 2t'
-	option vid '20'
 	option device 'switch0'
 
 config switch_vlan
 	option vlan '11'
 	option ports '0t 2t'
-	option vid '11'
 	option device 'switch0'
 
 config switch_vlan
 	option vlan '22'
 	option ports '0t 2t'
-	option vid '22'
 	option device 'switch0'
 
-config switch_vlan                        
-        option vlan '23'                  
-        option ports '0t 2t'              
-        option vid '23'                   
-        option device 'switch0'           
+config switch_vlan
+	option vlan '23'
+	option ports '0t 2t'
+	option device 'switch0'
 
-config switch_vlan             
-        option vlan '26'       
-        option ports '0t 2t'   
-        option vid '26'        
-        option device 'switch0'
-                               
+config switch_vlan
+	option vlan '26'
+	option ports '0t 2t'
+	option device 'switch0'
+
 config interface 'vlan5'
 	option proto 'static'
 	option ifname 'eth0.5'
@@ -71,45 +69,39 @@ config interface 'vlan5'
 config interface 'vlan10'
 	option proto 'batadv'
 	option mesh 'bat0'
-	option mtu '1500'
 	option ifname 'eth0.10'
 	option macaddr 'de:ad:be:ef:90:10'
 
 config interface 'vlan20'
 	option proto 'batadv'
 	option mesh 'bat0'
-	option mtu '1500'
 	option ifname 'eth0.20'
 	option macaddr 'de:ad:be:ef:90:11'
 
 config interface 'vlan11'
 	option proto 'batadv'
 	option mesh 'bat0'
-	option mtu '1500'
 	option ifname 'eth0.11'
 	option macaddr 'de:ad:be:ef:90:12'
 
 config interface 'vlan22'
 	option proto 'batadv'
 	option mesh 'bat0'
-	option mtu '1500'
 	option ifname 'eth0.22'
 	option macaddr 'de:ad:be:ef:90:13'
-                                          
-config interface 'vlan23'                 
-        option proto 'batadv'             
-        option mesh 'bat0'                
-        option mtu '1500'                 
-        option ifname 'eth0.23'           
-        option macaddr 'de:ad:be:ef:90:14'
 
-config interface 'vlan26'                 
-        option proto 'batadv'             
-        option mesh 'bat0'                
-        option mtu '1500'                 
-        option ifname 'eth0.26'           
-        option macaddr 'de:ad:be:ef:90:15'
-                                          
+config interface 'vlan23'
+	option proto 'batadv'
+	option mesh 'bat0'
+	option ifname 'eth0.23'
+	option macaddr 'de:ad:be:ef:90:14'
+
+config interface 'vlan26'
+	option proto 'batadv'
+	option mesh 'bat0'
+	option ifname 'eth0.26'
+	option macaddr 'de:ad:be:ef:90:15'
+
 config interface 'wan'
 	option ifname 'eth0.2'
 	option type 'bridge'
@@ -120,7 +112,7 @@ config interface 'wan'
 	option igmp_snooping '0'
 
 config interface 'client'
-	option ifname 'eth0.1 bat0'
+	option ifname 'eth0.1 eth0.6 bat0'
 	option type 'bridge'
 	option proto 'dhcpv6'
 	option reqprefix 'no'
@@ -165,6 +157,13 @@ config route 'local_node_route4'
 	option netmask '255.255.192.0'
 	option interface 'client'
 
+config interface 'mesh_lan'
+	option ifname 'eth0.1'
+	option auto '0'
+	option macaddr 'fa:1b:68:d8:df:d2'
+	option mesh 'bat0'
+	option proto 'batadv'
+
 config interface 'bat0'
 	option ifname 'bat0'
 	option macaddr 'f8:1a:67:d8:df:d2'
@@ -179,13 +178,6 @@ config interface 'mesh_radio1'
 	option mesh 'bat0'
 	option proto 'batadv'
 	option mtu '1528'
-
-config interface 'mesh_lan'
-	option ifname 'eth0.1'
-	option auto '0'
-	option macaddr 'fa:1b:68:d8:df:d2'
-	option mesh 'bat0'
-	option proto 'batadv'
 
 config device 'local_node_dev'
 	option macaddr '16:41:95:40:f7:dc'

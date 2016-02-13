@@ -32,19 +32,16 @@ config switch_vlan
 config switch_vlan
 	option vlan '5'
 	option ports '0t 2t'
-	option vid '5'
 	option device 'switch0'
 
 config switch_vlan
 	option vlan '10'
 	option ports '0t 2t'
-	option vid '10'
 	option device 'switch0'
 
 config switch_vlan
 	option vlan '20'
 	option ports '0t 2t'
-	option vid '20'
 	option device 'switch0'
 
 config interface 'vlan5'
@@ -56,14 +53,12 @@ config interface 'vlan5'
 config interface 'vlan10'
 	option proto 'batadv'
 	option mesh 'bat0'
-	option mtu '1500'
 	option ifname 'eth0.10'
 	option macaddr 'de:ad:be:ef:90:00'
 
 config interface 'vlan20'
 	option proto 'batadv'
 	option mesh 'bat0'
-	option mtu '1500'
 	option ifname 'eth0.20'
 	option macaddr 'de:ad:be:ef:90:01'
 
@@ -97,21 +92,6 @@ config interface 'client'
 	option macaddr 'f8:1a:67:5a:5d:e8'
 	option peerdns '1'
 
-config interface 'bat0'
-	option ifname 'bat0'
-	option macaddr 'f8:1a:67:5a:5d:e8'
-	option proto 'none'
-
-config interface 'mesh_radio0'
-	option mesh 'bat0'
-	option proto 'batadv'
-	option mtu '1528'
-
-config interface 'mesh_radio1'
-	option mesh 'bat0'
-	option proto 'batadv'
-	option mtu '1528'
-
 config interface 'mesh_wan'
 	option auto '0'
 	option ifname 'br-wan'
@@ -131,6 +111,21 @@ config interface 'mesh_vpn'
 	option macaddr 'fa:1e:67:5a:5d:e8'
 	option mesh 'bat0'
 	option proto 'batadv'
+
+config interface 'bat0'
+	option ifname 'bat0'
+	option macaddr 'f8:1a:67:5a:5d:e8'
+	option proto 'none'
+
+config interface 'mesh_radio0'
+	option mesh 'bat0'
+	option proto 'batadv'
+	option mtu '1528'
+
+config interface 'mesh_radio1'
+	option mesh 'bat0'
+	option proto 'batadv'
+	option mtu '1528'
 
 config device 'local_node_dev'
 	option macaddr '16:41:95:40:f7:dc'
