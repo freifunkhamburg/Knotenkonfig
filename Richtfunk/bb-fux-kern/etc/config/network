@@ -41,11 +41,6 @@ config switch_vlan
 	option device 'switch0'
 
 config switch_vlan
-	option vlan '11'
-	option ports '0t 2t'
-	option device 'switch0'
-
-config switch_vlan
 	option vlan '22'
 	option ports '0t 2t'
 	option device 'switch0'
@@ -77,12 +72,6 @@ config interface 'vlan20'
 	option mesh 'bat0'
 	option ifname 'eth0.20'
 	option macaddr 'de:ad:be:ef:90:11'
-
-config interface 'vlan11'
-	option proto 'batadv'
-	option mesh 'bat0'
-	option ifname 'eth0.11'
-	option macaddr 'de:ad:be:ef:90:12'
 
 config interface 'vlan22'
 	option proto 'batadv'
