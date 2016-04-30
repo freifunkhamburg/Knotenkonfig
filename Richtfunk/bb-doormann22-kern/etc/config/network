@@ -54,6 +54,11 @@ config switch_vlan
         option ports '0t 2t'   
         option device 'switch0'
 
+config switch_vlan             
+        option vlan '30'       
+        option ports '0t 2t'   
+        option device 'switch0'
+                               
 config interface 'vlan5'
 	option proto 'static'
 	option ifname 'eth0.5'
@@ -84,6 +89,12 @@ config interface 'vlan28'
         option ifname 'eth0.28'           
         option macaddr 'de:ad:be:ef:90:44'
  
+config interface 'vlan30'                 
+        option proto 'batadv'             
+        option mesh 'bat0'                
+        option ifname 'eth0.30'           
+        option macaddr 'de:ad:be:ef:90:45'
+                                          
 config interface 'wan'
 	option igmp_snooping '0'
 	option ifname 'eth0.2'
