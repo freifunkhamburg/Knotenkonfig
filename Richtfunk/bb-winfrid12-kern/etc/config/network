@@ -47,6 +47,7 @@ config interface 'vlan5'
         option netmask '255.255.255.0'
 
 config interface 'vlan30'
+        option mesh_no_rebroadcast '1'
         option proto 'batadv'
         option mesh 'bat0'
         option ifname 'eth0.30'

@@ -46,10 +46,11 @@ config interface 'vlan5'
         option netmask '255.255.255.0'
                                       
 config interface 'vlan29'             
+        option mesh_no_rebroadcast '1'    
         option proto 'batadv'         
         option mesh 'bat0'            
         option ifname 'eth0.29'       
-        option macaddr 'de:ad:be:ef:90:90'
+        option macaddr 'de:ad:be:ef:90:80'
 
 config interface 'wan'
 	option igmp_snooping '0'
