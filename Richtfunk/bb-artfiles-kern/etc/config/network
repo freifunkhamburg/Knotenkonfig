@@ -22,7 +22,7 @@ config switch
 config switch_vlan
 	option device 'switch0'
 	option vlan '1'
-	option ports '0t 2 3 4'
+	option ports '0t 2 3'
 
 config switch_vlan
 	option device 'switch0'
@@ -32,7 +32,7 @@ config switch_vlan
 config switch_vlan
 	option device 'switch0'
 	option vlan '5'
-	option ports '0t 5t'
+	option ports '0t 4t 5t'
 
 config switch_vlan
 	option device 'switch0'
@@ -47,7 +47,7 @@ config switch_vlan
 config switch_vlan
         option device 'switch0'
         option vlan '32'
-        option ports '0t 5t'
+        option ports '0t 4t'
 
 config interface 'vlan5'
 	option proto 'static'
