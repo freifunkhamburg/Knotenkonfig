@@ -20,65 +20,80 @@ config switch_vlan
 	option ports '0t 1'
 	option device 'switch0'
 
+
+#Wartungsnetz
+
 config switch_vlan
 	option vlan '5'
 	option ports '0t 2t'
 	option device 'switch0'
 
+config interface 'vlan5'              
+        option proto 'static'             
+        option ifname 'eth0.5'            
+        option ipaddr '192.168.112.7'     
+        option netmask '255.255.255.0'    
+                                          
+
+#Client fuer fux
+
 config switch_vlan
-        option vlan '6'
-        option ports '0t 2t'
+	option vlan '6'
+	option ports '0t 2t'
+	option device 'switch0'
+
+
+#mesh fux-ccchh
+
+config switch_vlan     
+        option vlan '7'     
+        option ports '0t 2t'   
         option device 'switch0'
+
+config interface 'vlan7'                  
+        option mesh_no_rebroadcast '1'    
+        option proto 'batadv'             
+        option mesh 'bat0'                
+        option ifname 'eth0.7'            
+        option macaddr 'de:ad:be:ef:90:16'
+
+
+#mesh fux turm
 
 config switch_vlan
 	option vlan '10'
 	option ports '0t 2t'
 	option device 'switch0'
 
+config interface 'vlan10'                                                                                                                                   
+        option mesh_no_rebroadcast '1'                                                                                                                      
+        option proto 'batadv'                                                                                                                               
+        option mesh 'bat0'                                                                                                                                  
+        option ifname 'eth0.10'                                                                                                                             
+        option macaddr 'de:ad:be:ef:90:10'                                                                                                                  
+                                                                                                                                                            
+
+#mesh fux-zeise26
+
 config switch_vlan
 	option vlan '20'
 	option ports '0t 2t'
 	option device 'switch0'
 
-config switch_vlan                        
-        option vlan '21'                  
-        option ports '0t 2t'              
-        option device 'switch0'           
+config interface 'vlan20'                 
+        option mesh_no_rebroadcast '1'    
+        option proto 'batadv'             
+        option mesh 'bat0'                
+        option ifname 'eth0.20'           
+        option macaddr 'de:ad:be:ef:90:11'
                                           
-config switch_vlan
-	option vlan '22'
-	option ports '0t 2t'
-	option device 'switch0'
+
+#mesh fux-pgk-altona
 
 config switch_vlan
-	option vlan '23'
+	option vlan '21'
 	option ports '0t 2t'
 	option device 'switch0'
-
-config switch_vlan
-	option vlan '26'
-	option ports '0t 2t'
-	option device 'switch0'
-
-config interface 'vlan5'
-	option proto 'static'
-	option ifname 'eth0.5'
-	option ipaddr '192.168.112.7'
-	option netmask '255.255.255.0'
-
-config interface 'vlan10'
-	option mesh_no_rebroadcast '1'
-	option proto 'batadv'
-	option mesh 'bat0'
-	option ifname 'eth0.10'
-	option macaddr 'de:ad:be:ef:90:10'
-
-config interface 'vlan20'
-        option mesh_no_rebroadcast '1'
-	option proto 'batadv'
-	option mesh 'bat0'
-	option ifname 'eth0.20'
-	option macaddr 'de:ad:be:ef:90:11'
 
 config interface 'vlan21'                 
         option mesh_no_rebroadcast '1'    
@@ -86,27 +101,52 @@ config interface 'vlan21'
         option mesh 'bat0'                
         option ifname 'eth0.21'           
         option macaddr 'de:ad:be:ef:90:12'
-                                          
-config interface 'vlan22'
-        option mesh_no_rebroadcast '1'
-	option proto 'batadv'
-	option mesh 'bat0'
-	option ifname 'eth0.22'
-	option macaddr 'de:ad:be:ef:90:13'
 
-config interface 'vlan23'
-        option mesh_no_rebroadcast '1'
-	option proto 'batadv'
-	option mesh 'bat0'
-	option ifname 'eth0.23'
-	option macaddr 'de:ad:be:ef:90:14'
+
+#mesh fux-werkhof
+
+config switch_vlan
+	option vlan '22'
+	option ports '0t 2t'
+	option device 'switch0'
+
+config interface 'vlan22'                 
+        option mesh_no_rebroadcast '1'    
+        option proto 'batadv'             
+        option mesh 'bat0'                
+        option ifname 'eth0.22'           
+        option macaddr 'de:ad:be:ef:90:13'
+
+
+#mesh fux-doormann22
+
+config switch_vlan
+	option vlan '23'
+	option ports '0t 2t'
+	option device 'switch0'
+
+config interface 'vlan23'                 
+        option mesh_no_rebroadcast '1'    
+        option proto 'batadv'             
+        option mesh 'bat0'                
+        option ifname 'eth0.23'           
+        option macaddr 'de:ad:be:ef:90:14'
+
+
+#mesh fux-artfiles
+
+config switch_vlan
+	option vlan '26'
+	option ports '0t 2t'
+	option device 'switch0'
 
 config interface 'vlan26'
-        option mesh_no_rebroadcast '1'    
+	option mesh_no_rebroadcast '1'
 	option proto 'batadv'
 	option mesh 'bat0'
 	option ifname 'eth0.26'
 	option macaddr 'de:ad:be:ef:90:15'
+
 
 config interface 'wan'
 	option ifname 'eth0.2'
@@ -155,7 +195,7 @@ config interface 'mesh_wan'
 	option ifname 'br-wan'
 	option mesh 'bat0'
 	option proto 'batadv'
-	option auto '0'
+	option auto '1'
 
 config route 'local_node_route4'
 	option target '10.112.0.0'
