@@ -1,8 +1,0 @@
-# Put your custom commands here that should be executed once
-# the system init finished. By default this file does nothing.
-
-echo 8 > /sys/class/gpio/export             # Aktiviert PoE auf dem LAN-Port, um NSM5 in Reihe zu schalten
-echo out > /sys/class/gpio/gpio8/direction  # Aktiviert PoE auf dem LAN-Port, um NSM5 in Reihe zu schalten
-echo 1 > /sys/class/gpio/gpio8/value        # Aktiviert PoE auf dem LAN-Port, um NSM5 in Reihe zu schalten
-
-exit 0
