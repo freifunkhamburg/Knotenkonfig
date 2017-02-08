@@ -1,0 +1,165 @@
+
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fd74:5137:c764::/48'
+
+config interface 'wan6'
+	option proto 'dhcpv6'
+	option sourcefilter '0'
+	option ifname 'br-wan'
+	option ip6table '1'
+	option peerdns '0'
+
+config switch
+	option name 'switch0'
+	option reset '1'
+	option enable_vlan '1'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '1'
+	option ports '0t 1 2 3'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '2'
+	option ports '5 6'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '5'
+	option ports '4t 0t'
+
+config switch_vlan
+       option device 'switch0'
+       option vlan '6'
+       option ports '0t 4t'
+
+config switch_vlan
+       option device 'switch0'
+       option vlan '11'
+       option ports '0t 4t'
+
+config switch_vlan
+       option device 'switch0'
+       option vlan '32'
+       option ports '0t 4t'
+
+config switch_vlan
+       option device 'switch0'
+       option vlan '33'
+       option ports '0t 4t'
+
+config interface 'wan'
+	option igmp_snooping '0'
+	option ifname 'eth0'
+	option auto '1'
+	option peerdns '0'
+	option type 'bridge'
+	option proto 'dhcp'
+	option macaddr 'f6:f3:6d:2a:16:3c'
+
+config interface 'vlan5'
+       option proto 'static'
+       option ifname 'eth1.5'
+       option ipaddr '192.168.112.54'
+       option netmask '255.255.255.0'
+
+config interface 'vlan11'                 
+       option proto 'batadv'             
+       option mesh 'bat0'                
+       option mesh_no_rebroadcast '1'
+       option ifname 'eth1.11'           
+       option macaddr 'de:ad:be:ef:90:c0'
+
+config interface 'vlan32'
+       option proto 'batadv'
+       option mesh 'bat0'
+       option mesh_no_rebroadcast '1'
+       option ifname 'eth1.32'
+       option macaddr 'de:ad:be:ef:90:c1'
+
+config interface 'vlan33'
+       option proto 'batadv'
+       option mesh 'bat0'
+       option mesh_no_rebroadcast '1'
+       option ifname 'eth1.33'
+       option macaddr 'de:ad:be:ef:90:c2'
+
+config rule6 'wan6_lookup'
+	option mark '0x01/0x01'
+	option lookup '1'
+
+config route6 'wan6_unreachable'
+	option type 'unreachable'
+	option table '1'
+	option target '::/0'
+	option metric '65535'
+	option gateway '::'
+	option interface 'loopback'
+
+config interface 'client'
+	option type 'bridge'
+	option macaddr 'f4:f2:6d:2a:16:3c'
+	list ifname 'bat0'
+	list ifname 'eth1.1'
+	list ifname 'eth1.6'
+	option proto 'dhcpv6'
+	option reqprefix 'no'
+	option igmp_snooping '0'
+	option peerdns '1'
+	option sourcefilter '0'
+
+config interface 'bat0'
+	option ifname 'bat0'
+	option macaddr 'f4:f2:6d:2a:16:3c'
+	option proto 'none'
+
+config interface 'ibss_radio0'
+	option mesh 'bat0'
+	option proto 'batadv'
+	option mtu '1528'
+
+config interface 'mesh_wan'
+	option auto '0'
+	option ifname 'br-wan'
+	option mesh 'bat0'
+	option proto 'batadv'
+
+config interface 'mesh_lan'
+	option ifname 'eth1'
+	option auto '0'
+	option macaddr 'f6:f3:6e:2a:16:3c'
+	option mesh 'bat0'
+	option proto 'batadv'
+
+config interface 'mesh_vpn'
+	option ifname 'mesh-vpn'
+	option mesh_no_rebroadcast '1'
+	option macaddr 'f6:f6:6d:2a:16:3c'
+	option mesh 'bat0'
+	option proto 'batadv'
+
+config device 'local_node_dev'
+	option macaddr '16:41:95:40:f7:dc'
+	option ifname 'br-client'
+	option name 'local-node'
+	option type 'macvlan'
+
+config interface 'local_node'
+	option ifname 'local-node'
+	option ipaddr '10.112.0.1'
+	option ip6addr '2a03:2267::1/128'
+	option netmask '255.255.192.0'
+	option proto 'static'
+
+config route6 'local_node_route6'
+	option target '2a03:2267::/64'
+	option gateway '::'
+	option interface 'client'
+
