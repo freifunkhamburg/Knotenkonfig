@@ -30,52 +30,75 @@ config switch_vlan
 	option vlan '2'
 	option ports '5 6'
 
+
+#Wartungsnetz
 config switch_vlan
        option device 'switch0'
        option vlan '5'
        option ports '0t 4t'
 
+config interface 'vlan5'      
+       option proto 'static'  
+       option ifname 'eth1.5' 
+       option ipaddr '192.168.112.48'
+       option netmask '255.255.255.0'
+ 
+
+#Sektorantennen
+#bb-pgkaltona-00-nsm2
 config switch_vlan
        option device 'switch0'
        option vlan '10'
        option ports '0t 4t'
 
+config interface 'vlan10'     
+       option proto 'batadv'  
+       option mesh 'bat0'     
+       option mesh_no_rebroadcast '1'
+       option ifname 'eth1.10'       
+       option macaddr 'de:ad:be:ef:90:20'
+                                     
+#bb-pgkaltona-09-nsm2                    
+config switch_vlan                       
+       option device 'switch0'           
+       option vlan '11'                  
+       option ports '0t 4t'              
+                                         
+config interface 'vlan11'                
+       option proto 'batadv'             
+       option mesh 'bat0'                
+       option mesh_no_rebroadcast '1'    
+       option ifname 'eth1.11'           
+       option macaddr 'de:ad:be:ef:90:23'
+
+
+#fux-pgkaltona
 config switch_vlan
        option device 'switch0'
        option vlan '21'
        option ports '0t 4t'
 
+config interface 'vlan21'                
+       option proto 'batadv'             
+       option mesh 'bat0'                
+       option mesh_no_rebroadcast '1'    
+       option ifname 'eth1.21'           
+       option macaddr 'de:ad:be:ef:90:21'
+                                         
+
+#pgkaltona-gemeindehaus
 config switch_vlan            
        option device 'switch0'            
        option vlan '31'                   
        option ports '0t 4t'   
 
-config interface 'vlan5'
-       option proto 'static'
-       option ifname 'eth1.5'
-       option ipaddr '192.168.112.48'
-       option netmask '255.255.255.0'
-
-config interface 'vlan10'                 
-       option proto 'batadv'             
-       option mesh 'bat0'                
-       option mesh_no_rebroadcast '1'
-       option ifname 'eth1.10'           
-       option macaddr 'de:ad:be:ef:90:20'
-                                         
-config interface 'vlan21'                 
-       option proto 'batadv'             
-       option mesh 'bat0'                
-       option mesh_no_rebroadcast '1'
-       option ifname 'eth1.21'           
-       option macaddr 'de:ad:be:ef:90:21'
-                                         
 config interface 'vlan31'                 
        option proto 'batadv'             
        option mesh 'bat0'                
        option mesh_no_rebroadcast '1'
        option ifname 'eth1.31'           
        option macaddr 'de:ad:be:ef:90:22'
+
 
 config interface 'wan'
 	option igmp_snooping '0'
