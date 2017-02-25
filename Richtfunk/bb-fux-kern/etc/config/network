@@ -71,7 +71,43 @@ config interface 'vlan10'
         option mesh 'bat0'                                                                                                                                  
         option ifname 'eth0.10'                                                                                                                             
         option macaddr 'de:ad:be:ef:90:10'                                                                                                                  
+
+config switch_vlan                        
+        option vlan '11'                  
+        option ports '0t 2t'              
+        option device 'switch0'           
+                                          
+config interface 'vlan11'                 
+        option mesh_no_rebroadcast '1'    
+        option proto 'batadv'             
+        option mesh 'bat0'                
+        option ifname 'eth0.11'           
+        option macaddr 'de:ad:be:ef:90:17'
                                                                                                                                                             
+config switch_vlan                        
+        option vlan '12'                  
+        option ports '0t 2t'              
+        option device 'switch0'           
+                                          
+config interface 'vlan12'                 
+        option mesh_no_rebroadcast '1'    
+        option proto 'batadv'             
+        option mesh 'bat0'                
+        option ifname 'eth0.12'           
+        option macaddr 'de:ad:be:ef:90:18'
+
+config switch_vlan                        
+        option vlan '13'                  
+        option ports '0t 2t'              
+        option device 'switch0'           
+                                          
+config interface 'vlan13'                 
+        option mesh_no_rebroadcast '1'    
+        option proto 'batadv'             
+        option mesh 'bat0'                
+        option ifname 'eth0.13'           
+        option macaddr 'de:ad:be:ef:90:19'
+
 
 #mesh fux-zeise26
 
