@@ -13,6 +13,7 @@ config interface 'wan6'
 	option ifname 'br-wan'
 	option ip6table '1'
 	option peerdns '0'
+	option sourcefilter '0'
 
 config switch
 	option name 'switch0'
@@ -29,84 +30,73 @@ config switch_vlan
 	option vlan '2'
 	option ports '5 6'
 
-
-#Wartungsnetz
 config switch_vlan
 	option device 'switch0'
 	option vlan '5'
 	option ports '0t 4t'
 
-config interface 'vlan5'       
-        option proto 'static'  
-        option ifname 'eth1.5' 
-        option ipaddr '192.168.112.17'
-        option netmask '255.255.255.0'
+config interface 'vlan5'
+	option proto 'static'
+	option ifname 'eth1.5'
+	option ipaddr '192.168.112.17'
+	option netmask '255.255.255.0'
 
-
-#Sektorantennen
-#bb-werkhof-0
 config switch_vlan
 	option device 'switch0'
 	option vlan '10'
 	option ports '0t 4t'
 
-config interface 'vlan10'             
-        option mesh_no_rebroadcast '1'
-        option proto 'batadv'         
-        option mesh 'bat0'            
-        option ifname 'eth1.10'       
-        option macaddr 'de:ad:be:ef:90:30'
-                                          
-#bb-werkhof-18
-config switch_vlan                             
-        option device 'switch0'                
-        option vlan '11'                       
-        option ports '0t 4t'                   
-                                               
-config interface 'vlan11'                      
-        option mesh_no_rebroadcast '1'         
-        option proto 'batadv'         
-        option mesh 'bat0'            
-        option ifname 'eth1.11'       
-        option macaddr 'de:ad:be:ef:90:33'
+config interface 'vlan10'
+	option ifname 'eth1.10'
+	option macaddr 'de:ad:be:ef:90:30'
+	option proto 'gluon_mesh'
+	option fixed_mtu '1'
+	option transitive '1'
 
+config switch_vlan
+	option device 'switch0'
+	option vlan '11'
+	option ports '0t 4t'
 
-#fux-werkhof
+config interface 'vlan11'
+	option ifname 'eth1.11'
+	option macaddr 'de:ad:be:ef:90:33'
+	option proto 'gluon_mesh'
+	option fixed_mtu '1'
+	option transitive '1'
+
 config switch_vlan
 	option device 'switch0'
 	option vlan '22'
 	option ports '0t 4t'
 
-config interface 'vlan22'                 
-        option mesh_no_rebroadcast '1'    
-        option proto 'batadv'             
-        option mesh 'bat0'                
-        option ifname 'eth1.22'           
-        option macaddr 'de:ad:be:ef:90:31'
+config interface 'vlan22'
+	option ifname 'eth1.22'
+	option macaddr 'de:ad:be:ef:90:31'
+	option proto 'gluon_mesh'
+	option fixed_mtu '1'
+	option transitive '1'
 
+config switch_vlan
+	option device 'switch0'
+	option vlan '27'
+	option ports '0t 4t'
 
-#werkhof-vogelfrei
-config switch_vlan             
-        option device 'switch0'
-        option vlan '27'       
-        option ports '0t 4t'   
-                               
-config interface 'vlan27'                 
-        option mesh_no_rebroadcast '1'    
-        option proto 'batadv'             
-        option mesh 'bat0'                
-        option ifname 'eth1.27'           
-        option macaddr 'de:ad:be:ef:90:32'
+config interface 'vlan27'
+	option ifname 'eth1.27'
+	option macaddr 'de:ad:be:ef:90:32'
+	option proto 'gluon_mesh'
+	option fixed_mtu '1'
+	option transitive '1'
 
-                                          
 config interface 'wan'
-	option igmp_snooping '0'
 	option ifname 'eth0'
 	option auto '1'
 	option peerdns '0'
 	option type 'bridge'
 	option proto 'dhcp'
-	option macaddr '16:cd:20:4d:3d:68'
+	option multicast_querier '0'
+	option macaddr '96:78:f6:ee:5b:e8'
 
 config rule6 'wan6_lookup'
 	option mark '0x01/0x01'
@@ -122,42 +112,56 @@ config route6 'wan6_unreachable'
 
 config interface 'client'
 	option reqprefix 'no'
-	option ifname 'eth1.1 bat0'
 	option proto 'dhcpv6'
 	option type 'bridge'
-	option igmp_snooping '0'
 	option macaddr '14:cc:20:4d:3d:68'
 	option peerdns '1'
+	list ifname 'eth1.1'
+	list ifname 'bat0'
+	option robustness '3'
+	option query_interval '2000'
+	option query_response_interval '500'
+	option sourcefilter '0'
 
 config interface 'mesh_wan'
 	option auto '0'
 	option ifname 'br-wan'
-	option mesh 'bat0'
-	option proto 'batadv'
+	option proto 'gluon_mesh'
+	option fixed_mtu '1'
 
 config interface 'mesh_lan'
 	option ifname 'eth1'
 	option auto '0'
-	option macaddr '16:cd:21:4d:3d:68'
 	option mesh 'bat0'
-	option proto 'batadv'
+	option igmp_snooping '0'
+	option transitive '1'
+	option fixed_mtu '1'
+	option proto 'gluon_mesh'
+	option type 'bridge'
+	option macaddr '96:78:f6:ee:5b:ec'
 
 config interface 'mesh_vpn'
 	option ifname 'mesh-vpn'
 	option mesh_no_rebroadcast '1'
-	option macaddr '16:d0:20:4d:3d:68'
 	option mesh 'bat0'
-	option proto 'batadv'
+	option transitive '1'
+	option macaddr '96:78:f6:ee:5b:ef'
+	option fixed_mtu '1'
+	option proto 'gluon_mesh'
+
+config interface 'ibss_radio0'
+	option proto 'gluon_mesh'
 
 config interface 'bat0'
+	option multicast_router '2'
 	option ifname 'bat0'
 	option macaddr '14:cc:20:4d:3d:68'
+	option learning '0'
 	option proto 'none'
 
-config interface 'mesh_radio0'
-	option mesh 'bat0'
-	option proto 'batadv'
-	option mtu '1528'
+config interface 'client_lan'
+	option unicast_flood '0'
+	option ifname 'eth1'
 
 config device 'local_node_dev'
 	option macaddr '16:41:95:40:f7:dc'
