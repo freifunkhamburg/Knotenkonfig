@@ -52,6 +52,7 @@ config interface 'vlan10'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'
 
 config switch_vlan
 	option device 'switch0'
@@ -64,6 +65,7 @@ config interface 'vlan11'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'
 
 config switch_vlan
 	option device 'switch0'
@@ -76,6 +78,7 @@ config interface 'vlan21'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'
 
 config switch_vlan
 	option device 'switch0'
@@ -88,6 +91,7 @@ config interface 'vlan31'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'
 
 config interface 'wan'
 	option ifname 'eth0'

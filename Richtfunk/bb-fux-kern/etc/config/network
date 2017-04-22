@@ -47,6 +47,7 @@ config interface 'vlan7'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'          
 
 config switch_vlan
 	option vlan '10'
@@ -59,6 +60,7 @@ config interface 'vlan10'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'          
 
 config switch_vlan
 	option vlan '11'
@@ -71,6 +73,7 @@ config interface 'vlan11'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'          
 
 config switch_vlan
 	option vlan '12'
@@ -83,6 +86,7 @@ config interface 'vlan12'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'
 
 config switch_vlan
 	option vlan '13'
@@ -95,6 +99,7 @@ config interface 'vlan13'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'
 
 config switch_vlan
 	option vlan '20'
@@ -107,6 +112,7 @@ config interface 'vlan20'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'
 
 config switch_vlan
 	option vlan '21'
@@ -119,6 +125,7 @@ config interface 'vlan21'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'
 
 config switch_vlan
 	option vlan '22'
@@ -131,6 +138,7 @@ config interface 'vlan22'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'
 
 config switch_vlan
 	option vlan '23'
@@ -143,6 +151,7 @@ config interface 'vlan23'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'
 
 config switch_vlan
 	option vlan '26'
@@ -155,6 +164,7 @@ config interface 'vlan26'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+        option igmp_snooping '0'
 
 config interface 'wan'
 	option ifname 'eth0.2'
@@ -182,7 +192,6 @@ config interface 'client'
 config interface 'mesh_vpn'
 	option ifname 'mesh-vpn'
 	option mesh 'bat0'
-	option mesh_no_rebroadcast '1'
 	option transitive '1'
 	option macaddr 'c2:0d:9f:de:d0:97'
 	option fixed_mtu '1'
