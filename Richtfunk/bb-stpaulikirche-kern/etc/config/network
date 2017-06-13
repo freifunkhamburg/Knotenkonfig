@@ -35,7 +35,7 @@ config switch_vlan
 	option ports '0t 2t'
 	option device 'switch0'
 
-config interface 'vlan5'
+config interface 'wartung'
 	option proto 'static'
 	option ifname 'eth0.5'
 	option ipaddr '192.168.112.24'
@@ -94,12 +94,24 @@ config switch_vlan
 	option ports '0t 2t'
 	option device 'switch0'
 
-config interface 'vlan25'
+config interface 'doormann22'
 	option ifname 'eth0.25'
 	option macaddr 'de:ad:be:ef:90:51'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
+
+config switch_vlan                        
+        option vlan '34'                  
+        option ports '0t 2t'              
+        option device 'switch0'           
+                                          
+config interface 'hafen122'                 
+        option ifname 'eth0.34'           
+        option macaddr 'de:ad:be:ef:90:55'
+        option proto 'gluon_mesh'         
+        option fixed_mtu '1'              
+        option transitive '1'             
 
 config interface 'wan'
 	option ifname 'eth0.2'
