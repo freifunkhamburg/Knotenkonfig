@@ -35,19 +35,19 @@ config switch_vlan
         option ports '0t 2t'
         option device 'switch0'
 
-config switch_vlan
-        option vlan '20'
-        option ports '0t 2t'
-        option device 'switch0'
-
 config interface 'vlan5'
         option proto 'static'
-        option ifname 'eth0.5'
+        option ifname 'eth1.5'
         option ipaddr '192.168.112.61'
         option netmask '255.255.255.0'
 
+config switch_vlan             
+        option vlan '36'       
+        option ports '0t 2t'   
+        option device 'switch0'
+
 config interface 'vlan36'
-        option ifname 'eth0.36'
+        option ifname 'eth1.36'
         option macaddr 'de:ad:be:ef:91:30'
         option proto 'gluon_mesh'
         option fixed_mtu '1'
