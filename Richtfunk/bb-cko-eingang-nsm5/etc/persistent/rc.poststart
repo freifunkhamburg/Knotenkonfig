@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Verzeichnis Anlegen:
+mkdir /etc/crontabs	
+
+# Kommentar in die Datei backbone schreiben:
+echo "#min hour day month dayofweek command" >> /etc/crontabs/backbone
+
+# Die Schnittstelle ath0 zur 0. Minute der 10. Stunde am 0. Wochentag (Sonntag) runter nehmen:
+echo "0 10 * * 0 ifconfig ath0 down" >> /etc/crontabs/backbone
+
+# Die Schnittstelle um 11:00 wieder hoch nehmen
+echo "0 11 * * 0 ifconfig ath0 up" >> /etc/crontabs/backbone
+  
+# cron starten
+crond enable 
