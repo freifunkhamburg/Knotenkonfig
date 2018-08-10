@@ -1,0 +1,21 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+CLOUD_IPV4=/lib/gluon/ebtables/109-local-forward-allow-cloud
+if [ ! -f $CLOUD_IPV4 ]; then
+	echo "Installing cloud IPv4 rule"
+	echo "rule('LOCAL_FORWARD -p IPv4 --ip-src 193.96.224.238/32 -j RETURN')" > $CLOUD_IPV4
+	/etc/init.d/gluon-ebtables start $CLOUD_IPV4
+else
+	echo "Cloud IPv4 rule already exists"
+fi
+
+HAS_SNMPD=$(opkg list-installed | grep ^snmpd | wc -l)
+if [ $HAS_SNMPD -eq 0 ]; then
+	echo "Installing snmpd"
+	opkg update && opkg install snmpd
+else
+	echo "snmpd already installed"
+fi
+
+exit 0
