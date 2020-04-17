@@ -1,0 +1,5 @@
+auto enp1s0
+iface enp1s0 inet static
+	address 10.112.96.23/19
+iface enp1s0 inet6 static
+	address 2a03:2267:2:0:7285:c2ff:fe23:d4ae/64

@@ -1,0 +1,5 @@
+auto dummy0
+iface dummy0 inet static
+	address 193.96.224.237
+	netmask 255.255.255.255
+	pre-up ip link add dummy0 type dummy
