@@ -1,10 +1,11 @@
 # Put your custom commands here that should be executed once
 # the system init finished. By default this file does nothing.
 
-CLOUD_IPV4=/lib/gluon/ebtables/109-local-forward-allow-cloud
+CLOUD_IPV4=/lib/gluon/ebtables/109-local-forward-allow-speicher
 if [ ! -f $CLOUD_IPV4 ]; then
 	echo "Installing cloud IPv4 rule"
 	echo "rule('LOCAL_FORWARD -p IPv4 --ip-src 193.96.224.238/32 -j RETURN')" > $CLOUD_IPV4
+	echo "rule('LOCAL_FORWARD -p IPv4 --ip-src 193.96.224.237/32 -j RETURN')" >> $CLOUD_IPV4
 	/etc/init.d/gluon-ebtables start $CLOUD_IPV4
 else
 	echo "Cloud IPv4 rule already exists"
@@ -19,3 +20,4 @@ else
 fi
 
 exit 0
+
