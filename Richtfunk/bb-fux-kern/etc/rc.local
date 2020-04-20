@@ -1,6 +1,7 @@
 # Put your custom commands here that should be executed once
 # the system init finished. By default this file does nothing.
 
+# Routing-Regel fuer cloud und speicher
 CLOUD_IPV4=/lib/gluon/ebtables/109-local-forward-allow-speicher
 if [ ! -f $CLOUD_IPV4 ]; then
 	echo "Installing cloud IPv4 rule"
@@ -11,6 +12,7 @@ else
 	echo "Cloud IPv4 rule already exists"
 fi
 
+# SNMP installieren
 HAS_SNMPD=$(opkg list-installed | grep ^snmpd | wc -l)
 if [ $HAS_SNMPD -eq 0 ]; then
 	echo "Installing snmpd"
@@ -19,4 +21,17 @@ else
 	echo "snmpd already installed"
 fi
 
+
+# Hop penalty heruntersetzen
+# No uci support for hop penalty after Gluon v2019.1.2
+INTERFACE="bat0"
+PENALTY="5"
+CURRENT=$(cat /sys/class/net/$INTERFACE/mesh/hop_penalty)
+if [ "$PENALTY" != "$CURRENT" ]; then
+    echo $PENALTY > /sys/class/net/$INTERFACE/mesh/hop_penalty
+    uci set batman-adv.$INTERFACE.hop_penalty=$PENALTY
+    uci commit batman-adv
+fi
+
 exit 0
+
