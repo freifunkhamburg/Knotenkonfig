@@ -61,39 +61,13 @@ config interface 'ccchh'
 	option igmp_snooping '0'
 
 config switch_vlan
-	option vlan '8'
-	option ports '0t 2t'
-	option device 'switch0'
-
-config interface 'bb_fux_mw_3g_tanz'
-	option ifname 'eth0.8'
-	option macaddr 'de:ad:be:ef:90:11'
-	option proto 'gluon_mesh'
-	option fixed_mtu '1'
-	option transitive '1'
-	option igmp_snooping '0'
-
-config switch_vlan
-	option vlan '9'
-	option ports '0t 2t'
-	option device 'switch0'
-
-config interface 'bb_fux_hof_1'
-	option ifname 'eth0.9'
-	option macaddr 'de:ad:be:ef:90:12'
-	option proto 'gluon_mesh'
-	option fixed_mtu '1'
-	option transitive '1'
-	option igmp_snooping '0'
-
-config switch_vlan
 	option vlan '10'
 	option ports '0t 2t'
 	option device 'switch0'
 
 config interface 'bb_fux_12'
 	option ifname 'eth0.10'
-	option macaddr 'de:ad:be:ef:90:13'
+	option macaddr 'de:ad:be:ef:90:11'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
@@ -106,7 +80,7 @@ config switch_vlan
 
 config interface 'bb_fux_17'
 	option ifname 'eth0.11'
-	option macaddr 'de:ad:be:ef:90:14'
+	option macaddr 'de:ad:be:ef:90:12'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
@@ -119,7 +93,7 @@ config switch_vlan
 
 config interface 'bb_fux_23'
 	option ifname 'eth0.12'
-	option macaddr 'de:ad:be:ef:90:15'
+	option macaddr 'de:ad:be:ef:90:13'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
@@ -132,7 +106,7 @@ config switch_vlan
 
 config interface 'bb_fux_28'
 	option ifname 'eth0.13'
-	option macaddr 'de:ad:be:ef:90:16'
+	option macaddr 'de:ad:be:ef:90:14'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
@@ -145,20 +119,7 @@ config switch_vlan
 
 config interface 'kuno'
 	option ifname 'eth0.20'
-	option macaddr 'de:ad:be:ef:90:17'
-	option proto 'gluon_mesh'
-	option fixed_mtu '1'
-	option transitive '1'
-	option igmp_snooping '0'
-
-config switch_vlan
-	option vlan '21'
-	option ports '0t 2t'
-	option device 'switch0'
-
-config interface 'pgkaltona'
-	option ifname 'eth0.21'
-	option macaddr 'de:ad:be:ef:90:18'
+	option macaddr 'de:ad:be:ef:90:15'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
@@ -171,7 +132,7 @@ config switch_vlan
 
 config interface 'werkhof'
 	option ifname 'eth0.22'
-	option macaddr 'de:ad:be:ef:90:19'
+	option macaddr 'de:ad:be:ef:90:16'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
@@ -184,7 +145,7 @@ config switch_vlan
 
 config interface 'doormann22'
 	option ifname 'eth0.23'
-	option macaddr 'de:ad:be:ef:90:1a'
+	option macaddr 'de:ad:be:ef:90:17'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
@@ -197,24 +158,24 @@ config switch_vlan
 
 config interface 'artfiles'
 	option ifname 'eth0.26'
-	option macaddr 'de:ad:be:ef:90:1b'
+	option macaddr 'de:ad:be:ef:90:18'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
 	option igmp_snooping '0'
 
 config switch_vlan
-        option vlan '35'
-        option ports '0t 2t'
-        option device 'switch0'
+	option vlan '35'
+	option ports '0t 2t'
+	option device 'switch0'
 
-config interface 'moewe'   
-        option ifname 'eth0.35'
-        option macaddr 'de:ad:be:ef:90:1c'
-        option proto 'gluon_mesh'    
-        option fixed_mtu '1'          
-        option transitive '1'
-        option igmp_snooping '0'
+config interface 'moewe'
+	option ifname 'eth0.35'
+	option macaddr 'de:ad:be:ef:90:19'
+	option proto 'gluon_mesh'
+	option fixed_mtu '1'
+	option transitive '1'
+	option igmp_snooping '0'
 
 config switch_vlan
 	option vlan '36'
@@ -223,24 +184,24 @@ config switch_vlan
 
 config interface 'sumo'
 	option ifname 'eth0.36'
-	option macaddr 'de:ad:be:ef:90:1d'
+	option macaddr 'de:ad:be:ef:90:1a'
 	option proto 'gluon_mesh'
 	option fixed_mtu '1'
 	option transitive '1'
 	option igmp_snooping '0'
 
 config switch_vlan
-        option vlan '40'
-        option ports '0t 2t'
-        option device 'switch0'
+	option vlan '40'
+	option ports '0t 2t'
+	option device 'switch0'
 
-config interface 'gleis4a'   
-        option ifname 'eth0.40'
-        option macaddr 'de:ad:be:ef:90:1e'
-        option proto 'gluon_mesh'    
-        option fixed_mtu '1'          
-        option transitive '1'
-        option igmp_snooping '0'
+config interface 'gleis4a'
+	option ifname 'eth0.40'
+	option macaddr 'de:ad:be:ef:90:1b'
+	option proto 'gluon_mesh'
+	option fixed_mtu '1'
+	option transitive '1'
+	option igmp_snooping '0'
 
 config interface 'wan'
 	option igmp_snooping '1'
@@ -330,6 +291,7 @@ config interface 'local_node'
 	option proto 'static'
 
 config interface 'gluon_bat0'
+	option gw_mode 'client'
 	option proto 'gluon_bat0'
 
 config interface 'bat0'
