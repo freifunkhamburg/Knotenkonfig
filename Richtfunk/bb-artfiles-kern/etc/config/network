@@ -47,33 +47,33 @@ config switch_vlan
 	option vlan '26'
 	option ports '0t 5t'
 
+config interface 'fux'             
+        option ifname 'eth0.26'       
+        option macaddr 'de:ad:be:ef:90:70'
+        option proto 'gluon_mesh'         
+        option fixed_mtu '1'              
+        option transitive '1'             
+        option igmp_snooping '0'
+
 config switch_vlan
 	option device 'switch0'
 	option vlan '29'
 	option ports '0t 5t'
+
+config interface 'chemnitz'                 
+        option ifname 'eth0.29'           
+        option macaddr 'de:ad:be:ef:90:71'
+        option proto 'gluon_mesh'         
+        option fixed_mtu '1'              
+        option transitive '1'             
+        option igmp_snooping '0'          
 
 config switch_vlan
 	option device 'switch0'
 	option vlan '32'
 	option ports '0t 4t'
 
-config interface 'vlan26'
-	option ifname 'eth0.26'
-	option macaddr 'de:ad:be:ef:90:70'
-	option proto 'gluon_mesh'
-	option fixed_mtu '1'
-	option transitive '1'
-	option igmp_snooping '0'
-
-config interface 'vlan29'
-	option ifname 'eth0.29'
-	option macaddr 'de:ad:be:ef:90:71'
-	option proto 'gluon_mesh'
-	option fixed_mtu '1'
-	option transitive '1'
-	option igmp_snooping '0'
-
-config interface 'vlan32'
+config interface 'bue'
 	option ifname 'eth0.32'
 	option macaddr 'de:ad:be:ef:90:72'
 	option proto 'gluon_mesh'
