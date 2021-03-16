@@ -36,18 +36,18 @@ config switch_vlan
 	option ports '0t 2t'
 	option device 'switch0'
 
+config interface 'wartung'       
+        option proto 'static'  
+        option ifname 'eth0.5' 
+        option ipaddr '192.168.112.50'
+        option netmask '255.255.255.0'
+
 config switch_vlan
 	option vlan '31'
 	option ports '0t 2t'
 	option device 'switch0'
 
-config interface 'vlan5'
-	option proto 'static'
-	option ifname 'eth0.5'
-	option ipaddr '192.168.112.50'
-	option netmask '255.255.255.0'
-
-config interface 'vlan31'
+config interface 'pgkaltona'
 	option ifname 'eth0.31'
 	option macaddr 'de:ad:be:ef:90:b0'
 	option proto 'gluon_mesh'
