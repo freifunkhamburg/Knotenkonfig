@@ -34,7 +34,13 @@ config switch_vlan
 config switch_vlan
 	option device 'switch0'
 	option vlan '5'
-	option ports '0t 2 4t 5t'
+	option ports '0t 4t 5t'
+
+config interface 'wartung'
+        option proto 'static'
+        option ifname 'eth0.5'
+        option ipaddr '192.168.112.34'
+        option netmask '255.255.255.0'
 
 config switch_vlan
 	option device 'switch0'
@@ -50,17 +56,6 @@ config switch_vlan
 	option device 'switch0'
 	option vlan '32'
 	option ports '0t 4t'
-
-config switch_vlan
-	option device 'switch0'
-	option vlan '111'
-	option ports '4t 5t'
-
-config interface 'vlan5'
-	option proto 'static'
-	option ifname 'eth0.5'
-	option ipaddr '192.168.112.34'
-	option netmask '255.255.255.0'
 
 config interface 'vlan26'
 	option ifname 'eth0.26'
