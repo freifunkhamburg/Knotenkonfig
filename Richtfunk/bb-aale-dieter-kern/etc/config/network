@@ -24,7 +24,7 @@ config switch
 config switch_vlan
 	option device 'switch0'
 	option vlan '1'
-	option ports '1 2 3 0t'
+	option ports '1 2 0t'
 
 config switch_vlan
 	option device 'switch0'
@@ -73,6 +73,19 @@ config interface 'wartung'
         option netmask '255.255.255.0'    
 	option vxlan '0'
 
+config switch_vlan             
+        option device 'switch0'
+        option vlan '10'       
+        option ports '0t 3'   
+                               
+config interface 'sektor'         
+        option ifname 'eth1.10' 
+        option macaddr 'de:ad:be:ef:91:60'
+        option proto 'gluon_mesh'   
+        option fixed_mtu '1'        
+        option transitive '1'       
+        option igmp_snooping '0' 
+
 config switch_vlan
         option device 'switch0'
         option vlan '41'
@@ -80,7 +93,7 @@ config switch_vlan
 
 config interface 'cko'
         option ifname 'eth1.41'
-        option macaddr 'de:ad:be:ef:91:60'
+        option macaddr 'de:ad:be:ef:91:61'
         option proto 'gluon_mesh'
         option fixed_mtu '1'
         option transitive '1'
