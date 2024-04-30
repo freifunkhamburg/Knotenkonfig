@@ -1,0 +1,41 @@
+
+config core 'core'
+	option domain 'ffhh_west'
+
+config wireless 'wireless'
+	option outdoor '0'
+	option preserve_channels '0'
+
+config mesh_vpn 'mesh_vpn'
+	option limit_ingress '8096'
+	option limit_enabled '0'
+	option limit_egress '1024'
+	option enabled '1'
+
+config interface 'iface_wan'
+	option name '/wan'
+	list role 'uplink'
+
+config interface 'iface_lan'
+	option name '/lan'
+	list role 'client'
+
+config interface 'sektor1'
+        option name 'lan1.10'
+        list role 'mesh'
+
+config interface 'sektor2' 
+        option name 'lan1.11'
+        list role 'mesh'
+
+config interface 'pgkaltona' 
+        option name 'lan1.21'
+        list role 'mesh'
+
+config interface 'moewe'
+        option name 'lan1.37'
+        list role 'mesh'
+
+config interface 'fux'    
+        option name 'lan1.40'
+        list role 'mesh'
