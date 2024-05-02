@@ -20,10 +20,10 @@ config interface 'iface_lan'
 	option name '/lan'
 	list role 'client'
 
-config interface 'bierhahn'
-        option name 'lan1'
-	list role 'mesh'
-
 config interface 'cko'
-        option name 'lan2.39'
+        option name 'lan1.39'
         list role 'mesh'
+
+config interface 'bierhahn'
+        option name 'lan2'
+	list role 'mesh'

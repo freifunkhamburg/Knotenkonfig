@@ -49,30 +49,30 @@ config interface 'mesh_radio1'
 	option proto 'gluon_mesh'
 
 config device
-	option name 'lan1'
+        option name 'lan1.5'
+        option isolate '1' 
+                                 
+config device
+	option name 'lan1.39'
 	option isolate '1'
 
 config device
-	option name 'lan2.39'
-	option isolate '1'
-
-config device                                                                                           
-        option name 'lan2.5'                                                                           
-        option isolate '1'                                                                            
-
+        option name 'lan2'
+        option isolate '1'
+                                   
 config interface 'wartung'
         option igmp_snooping '1'
         option ipaddr '192.168.112.59'
         option netmask '255.255.255.0'
 	option auto '1'
         option type 'bridge'
-        list ifname 'lan2.5'
+        list ifname 'lan1.5'
 	option proto 'static'
 
 config interface 'mesh_other'
 	option igmp_snooping '0'
-	list ifname 'lan1'
-	list ifname 'lan2.39'
+        list ifname 'lan1.39'         
+	list ifname 'lan2'
 	option index '4'
 	option vxlan '0'
 	option proto 'gluon_wired'
