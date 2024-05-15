@@ -1,0 +1,29 @@
+
+config core 'core'
+	option domain 'ffhh_west'
+
+config mesh_vpn 'mesh_vpn'
+	option enabled '1'
+	option limit_ingress '8096'
+	option limit_enabled '0'
+	option limit_egress '1024'
+
+config wireless 'wireless'
+	option outdoor '0'
+	option preserve_channels '0'
+
+config interface 'iface_wan'
+	option name '/wan'
+	list role 'uplink'
+
+config interface 'iface_lan'
+	option name '/lan'
+	list role 'client'
+
+config interface 'werkhof'
+        option name 'eth0.27'
+        list role 'mesh'
+
+config interface 'cko'
+        option name 'eth0.38'
+        list role 'mesh'
